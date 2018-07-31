@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>webpack 4 quickstart</title>
+</head>
+
+<body>
+    <div id="app">
+    </div>
+
+    <h2>Git Explorer Form</h2>
+  <p>Resize the browser window to see the effect. When the screen is less than 600px wide, make the two columns stack on top
+    of each other instead of next to each other.</p>
+  <div class="container">
+    <form method="get" action="#" onsubmit="return false">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">User Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fname" name="name" placeholder="Your User name git..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Key</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="token" name="key" placeholder="Your user key from Git..">
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-25">
+            <label for="lname">Repository Name</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="reponame" name="reponame" placeholder="reposity new / name from Git..">
+          </div>
+        </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="op">Operation</label>
+        </div>
+        <div class="col-75">
+          <select id="op" name="operation">
+            <option value="getUserInfo">getUserInfo</option>
+            <option value="createRepo">createRepo</option>
+            <option value="createNewIssue">createNewIssue</option>
+            <option value="deleteIssue">deleteIssue</option>
+            <option value="getCollaborator">getCollaborator</option>
+            <option value="userAsCollaborator">userAsCollaborator</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="response">Response</label>
+        </div>
+        <div class="col-75">
+          <textarea id="response" name="response" placeholder="Response from git.." style="height:200px"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <p>
+          <button id="button">Tryit</button>
+        </p>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
