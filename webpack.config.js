@@ -1,6 +1,8 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackMd5Hash = require('webpack-md5-hash');
 const path = require('path');
+const devMode = process.env.NODE_ENV !== 'production'
 module.exports = {
   module: {
     rules: [
@@ -21,9 +23,23 @@ module.exports = {
         ]
       },
       {
+        test: /\.scss$/,
+        use: [{
+            loader: "style-loader"
+        }, {
+            loader: "css-loader", options: {
+                sourceMap: true
+            }
+        }, {
+            loader: "sass-loader", options: {
+                sourceMap: true
+            }
+        }]
+    }/*,
+      {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, "css-loader"]
-      }
+      }*/
     ]
   },
   plugins: [
@@ -31,10 +47,16 @@ module.exports = {
       template: "./src/index.html",
       filename: "./index.html"
     }),
-    new MiniCssExtractPlugin({
+    /*new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
-    })
+    }),*/
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+  })
   ],
   devtool: 'source-map',
   devServer: {
